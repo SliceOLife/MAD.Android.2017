@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Contactenkaart</string>
+    <string name="firstname_placeholder">Henk</string>
+    <string name="lastname_placeholder">de Vries</string>
+    <string name="refresh_button">Ververs</string>
+</resources>
