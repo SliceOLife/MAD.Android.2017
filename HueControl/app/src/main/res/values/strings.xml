@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">HueControl</string>
+    <string name="title_activity_bulb_listview">BulbListview</string>
+    <string name="bridge_name_placeholder">Placeholder Bridge</string>
+    <string name="bridge_endpoint_placeholder">Endpoint Placeholder</string>
+    <string name="bulb_name_placeholder">Bulb Name</string>
+
+    <!-- Resource Strings !-->
+    <string name="set_brightness_label">Brightness</string>
+    <string name="set_hue_label">Hue</string>
+    <string name="set_saturation_label">Saturation</string>
+</resources>
