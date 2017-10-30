@@ -1,6 +1,5 @@
 package jordi.pw.huecontrol.View;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CompoundButton;
@@ -34,8 +33,9 @@ public class BulbDetail extends AppCompatActivity  {
 
         bulbName.setText(bulb.getName());
         bulbStateSwitch.setChecked(bulb.isState());
-        bulbHueSeekbar.setProgress(bulb.getHue());
-        //bulbSaturationSeekbar.setProgress(bulb.getSaturation());
+        int bulbHue = bulb.getHue();
+        bulbHueSeekbar.setProgress(bulbHue);
+        bulbSaturationSeekbar.setProgress(bulb.getSaturation());
         bulbBrightnessSeekbar.setProgress(bulb.getBrightness());
 
         // Switch listener

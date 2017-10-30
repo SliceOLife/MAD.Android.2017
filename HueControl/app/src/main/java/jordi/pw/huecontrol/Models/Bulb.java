@@ -18,7 +18,6 @@ public class Bulb implements Parcelable {
     private String endpoint;
     private String name;
     private boolean state;
-    private Integer id;
 
     private Integer hue;
     private Integer brightness;
@@ -27,7 +26,7 @@ public class Bulb implements Parcelable {
 
     public Bulb(String endpoint, String identifier, Integer id) {
         this.endpoint = String.format("http://%s/api/%s/lights/%d/state/", endpoint, identifier, id);
-        Log.d(TAG, String.format("Hey, I'm bulb %s, with endpoint: %s", id, this.endpoint));
+        Log.d(TAG, String.format("I'm bulb %s, with endpoint: %s", id, this.endpoint));
     }
 
     public void toggle() {
@@ -58,7 +57,6 @@ public class Bulb implements Parcelable {
         endpoint = in.readString();
         name = in.readString();
         state = in.readByte() != 0x00;
-        id = in.readByte() == 0x00 ? null : in.readInt();
         hue = in.readByte() == 0x00 ? null : in.readInt();
         brightness = in.readByte() == 0x00 ? null : in.readInt();
         saturation = in.readByte() == 0x00 ? null : in.readInt();
@@ -91,12 +89,6 @@ public class Bulb implements Parcelable {
         } else {
             dest.writeByte((byte) (0x01));
             dest.writeInt(saturation);
-        }
-        if (id == null) {
-            dest.writeByte((byte) (0x00));
-        } else {
-            dest.writeByte((byte) (0x01));
-            dest.writeInt(id);
         }
     }
 

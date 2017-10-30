@@ -67,7 +67,6 @@ public class BulbAdapter extends BaseAdapter {
         viewHolder.state.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Log.d("BULBADAPTER", "HEY IM CHANGED B");
                 bulb.toggle();
             }
         });

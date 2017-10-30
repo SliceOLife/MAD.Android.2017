@@ -99,6 +99,9 @@ public class Bridge implements Parcelable {
     };
 
     private void parseBulbs(JSONObject response) throws JSONException {
+        // Clear our list of bulbs because we have a new set from the API
+        bulbs.clear();
+
         for (Iterator<String> iterator = response.keys(); iterator.hasNext();) {
             // Create a new bulb
             String cur = iterator.next();

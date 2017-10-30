@@ -36,7 +36,22 @@ public class BulbListview extends AppCompatActivity implements AdapterView.OnIte
         // Retrieve bridge from intent
         this.bridge = getIntent().getParcelableExtra("bridge");
 
+        this.adapter = new BulbAdapter(getApplicationContext(), LayoutInflater.from(getApplicationContext()), this.bridge.getBulbs());
+        bulbList.setAdapter(this.adapter);
+
+
         // Call bulb retrieval on bridge and pass callback
+        requestBulbs();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        requestBulbs();
+    }
+
+    private void requestBulbs() {
         try {
             bridge.getAvailableBulbs(this);
         } catch (Exception e) {
@@ -58,9 +73,6 @@ public class BulbListview extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onBulbsLoaded() {
         // Implement bulb adapter
-        this.adapter = new BulbAdapter(getApplicationContext(), LayoutInflater.from(getApplicationContext()), bridge.getBulbs());
-        bulbList.setAdapter(this.adapter);
-
         this.adapter.notifyDataSetChanged();
     }
 }
